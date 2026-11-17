@@ -1,53 +1,44 @@
-<div class="background" [ngClass]="{
-    'background': !windowsSizeService.isMobile,
-    'background-mobile': windowsSizeService.isMobile}">
-
+<div [class.background]="!windowsSizeService.isMobile()" [class.background-mobile]="windowsSizeService.isMobile()">
+  @if (!windowsSizeService.isMobile()) {
     <!-- Desktop -->
-    <ng-container *ngIf="!windowsSizeService.isMobile">
-        <h1 class="title-circle">MATT TROTZ GLANZ</h1>
-        <div class="small-heading-box">
-            <h2 class="white-big">Depression im Spitzensport - <span class="black-small">Ein Tabuthema</span></h2>
+    <h1 class="title-circle">MATT TROTZ GLANZ</h1>
+    <div class="small-heading-box">
+      <h2 class="white-big">Depression im Spitzensport - <span class="black-small">Ein Tabuthema</span></h2>
+    </div>
+    <div class="zitat">
+      <div class="row">
+        <div class="col-3">
+          <div class="book-pic"></div>
         </div>
-        <div class="zitat">
-            <div class="row">
-                <div class="col-3">
-                    <div class="book-pic"></div>
-                </div>
-                <div class="col-9">
-                    <p>
-                        "Viele denken, im Sport geht es nur um Erfolg und Misserfolg. Für mich gehts viel mehr darum,
-                        Werte
-                        und Eigenschaften zu entwickeln, die mich durch ein erfolgreiches Leben führen. Besonders in
-                        schwierigen Situationen musst du dich auf deine innere Stärke verlassen können und daran
-                        wachsen."
-                    </p>
-                    <p class="ztat-verfasser">
-                        Dennis Hediger <br> Fußball – FC Thun, 10 Jahre Super League
-                    </p>
-                    <button mat-raised-button style="font-size: x-large;" [routerLink]="['/buch']">Mehr übers Buch
-                        erfahren</button>
-                </div>
-            </div>
+        <div class="col-9">
+          <p>
+            "Viele denken, im Sport geht es nur um Erfolg und Misserfolg. Für mich gehts viel mehr darum,
+            Werte und Eigenschaften zu entwickeln, die mich durch ein erfolgreiches Leben führen. Besonders in
+            schwierigen Situationen musst du dich auf deine innere Stärke verlassen können und daran
+            wachsen."
+          </p>
+          <p class="ztat-verfasser">
+            Dennis Hediger <br> Fußball – FC Thun, 10 Jahre Super League
+          </p>
+          <button mat-raised-button style="font-size: x-large;" [routerLink]="['/buch']">Mehr übers Buch erfahren</button>
         </div>
-    </ng-container>
+      </div>
+    </div>
+  } @else {
     <!-- Mobile -->
-    <ng-container *ngIf="windowsSizeService.isMobile">
-        <div class="container text-front-mobile">
-            <h1 class="title-mobile">Matt trotz Glanz</h1>
-            <h2 class="subtitle-mobile">Depression im Spitzensport - Ein Tabuthema</h2>
-            <div class="zitat-mobile">
-                <button mat-flat-button color="accent" [routerLink]="['/buch']">Mehr übers Buch
-                    erfahren</button>
-                
-                <p class="" style="margin-top: 1em;">
-                    "Viele denken, im Sport geht es nur um Erfolg und Misserfolg. Für mich gehts viel mehr darum, Werte
-                    und Eigenschaften zu entwickeln, die mich durch ein erfolgreiches Leben führen. Besonders in
-                    schwierigen Situationen musst du dich auf deine innere Stärke verlassen können und daran wachsen."
-                    <br><br>
-                    Dennis Hediger <br> Fußball – FC Thun, 10 Jahre Super League
-                </p>
-            </div>
-        </div>
-    </ng-container>
-
+    <div class="container text-front-mobile">
+      <h1 class="title-mobile">Matt trotz Glanz</h1>
+      <h2 class="subtitle-mobile">Depression im Spitzensport - Ein Tabuthema</h2>
+      <div class="zitat-mobile">
+        <button mat-flat-button color="accent" [routerLink]="['/buch']">Mehr übers Buch erfahren</button>
+        <p style="margin-top: 1em;">
+          "Viele denken, im Sport geht es nur um Erfolg und Misserfolg. Für mich gehts viel mehr darum, Werte
+          und Eigenschaften zu entwickeln, die mich durch ein erfolgreiches Leben führen. Besonders in
+          schwierigen Situationen musst du dich auf deine innere Stärke verlassen können und daran wachsen."
+          <br><br>
+          Dennis Hediger <br> Fußball – FC Thun, 10 Jahre Super League
+        </p>
+      </div>
+    </div>
+  }
 </div>

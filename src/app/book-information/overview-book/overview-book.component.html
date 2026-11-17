@@ -2,22 +2,30 @@
 
     <mat-accordion class="example-headers-align" multi>
 
-        <mat-expansion-panel class="mat-expansion-panel">
+        <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    <h1 style="margin: 0;" *ngIf="!windowsSizeService.isMobile">Über den Autor</h1>
-                    <span *ngIf="windowsSizeService.isMobile">Über den Autor</span>
+                    @if (!windowsSizeService.isMobile()) {
+                      <h1 style="margin: 0;">Über den Autor</h1>
+                    }
+                    @if (windowsSizeService.isMobile()) {
+                      <span>Über den Autor</span>
+                    }
                 </mat-panel-title>
                 <mat-panel-description>
                     Florian Schneider
-                    <mat-icon *ngIf="!windowsSizeService.isMobile">account_circle</mat-icon>
+                    @if (!windowsSizeService.isMobile()) {
+                      <mat-icon>account_circle</mat-icon>
+                    }
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <div class="row">
                 <!-- Mobile -->
-                <div class="col-lg-3 small-pictures-mobile" *ngIf="windowsSizeService.isMobile">
-                    <div class="flo-portrait"></div>
-                </div>
+                @if (windowsSizeService.isMobile()) {
+                  <div class="col-lg-3 small-pictures-mobile">
+                      <div class="flo-portrait"></div>
+                  </div>
+                }
                 <div class="col-lg-8">
                     Florian Schneider, geboren am 6. April 1993 in Bern, lebte bis 2018 in der Gemeinde Stettlen rund
                     sieben Kilometer östlich von Bern. Seit 2018 wohnt er in Thun. Der Bauingenieur (Bachelor of Science
@@ -43,28 +51,38 @@
 
 
                 </div>
-                <div class="col-md-3" *ngIf="!windowsSizeService.isMobile">
-                    <div class="flo-portrait"></div>
-                </div>
+                @if (!windowsSizeService.isMobile()) {
+                  <div class="col-md-3">
+                      <div class="flo-portrait"></div>
+                  </div>
+                }
             </div>
         </mat-expansion-panel>
 
         <mat-expansion-panel expanded>
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    <h1 style="margin: 0;" *ngIf="!windowsSizeService.isMobile">Über das Buch</h1>
-                    <span *ngIf="windowsSizeService.isMobile">Über das Buch</span>
+                    @if (!windowsSizeService.isMobile()) {
+                      <h1 style="margin: 0;">Über das Buch</h1>
+                    }
+                    @if (windowsSizeService.isMobile()) {
+                      <span>Über das Buch</span>
+                    }
                 </mat-panel-title>
                 <mat-panel-description>
                     Matt trotz Glanz
-                    <mat-icon *ngIf="!windowsSizeService.isMobile">menu_book</mat-icon>
+                    @if (!windowsSizeService.isMobile()) {
+                      <mat-icon>menu_book</mat-icon>
+                    }
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <div class="row">
                 <!-- Mobile -->
-                <div class="col-lg-3 small-pictures-mobile" *ngIf="windowsSizeService.isMobile">
-                    <div class="buch-cover-normal"></div>
-                </div>
+                @if (windowsSizeService.isMobile()) {
+                  <div class="col-lg-3 small-pictures-mobile">
+                      <div class="buch-cover-normal"></div>
+                  </div>
+                }
                 <div class="col-lg-8">
                     <p>
                         Ein junger, talentierter Leistungssportler geht seinen Weg. Er trainiert hochgradig motiviert,
@@ -99,9 +117,11 @@
 
                 </div>
                 <!-- Desktop -->
-                <div class="col-lg-3" *ngIf="!windowsSizeService.isMobile">
-                    <div class="buch-cover-normal"></div>
-                </div>
+                @if (!windowsSizeService.isMobile()) {
+                  <div class="col-lg-3">
+                      <div class="buch-cover-normal"></div>
+                  </div>
+                }
             </div>
             <div class="row">
                 <div class="video col-lg-8">

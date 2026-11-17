@@ -1,22 +1,20 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { MatAccordion } from '@angular/material/expansion';
-import { WindowsSizeService } from 'src/app/menu/windows-size.service';
+import { Component, ElementRef, inject, viewChild } from '@angular/core';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { WindowsSizeService } from '../../menu/windows-size.service';
 
 @Component({
   selector: 'app-overview-book',
+  imports: [MatExpansionModule, MatIconModule],
   templateUrl: './overview-book.component.html',
-  styleUrls: ['./overview-book.component.scss']
+  styleUrl: './overview-book.component.scss',
 })
-export class OverviewBookComponent  {
+export class OverviewBookComponent {
+  protected readonly windowsSizeService = inject(WindowsSizeService);
 
-  @ViewChild(MatAccordion) accordion: MatAccordion;
+  private readonly videoPlayer = viewChild.required<ElementRef<HTMLVideoElement>>('videoPlayer');
 
-  @ViewChild('videoPlayer') videoplayer: ElementRef;
-
-  
-  constructor(public windowsSizeService: WindowsSizeService) { }
-  
-  toggleVideo() {
-    this.videoplayer.nativeElement.play();
+  protected toggleVideo(): void {
+    this.videoPlayer().nativeElement.play();
   }
 }

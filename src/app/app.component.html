@@ -1,33 +1,20 @@
-<ng-container *ngIf="!windowsSizeService.isMobile">
-        <ng-container *ngIf="currentRoute!=='/start' && currentRoute!=='/anmelden' && currentRoute!=='/'">
-                <mat-toolbar class="app-toolbar-desktop">
-                        <div class="small-logo-desktop" [routerLink]="['']">MATT <br> TROTZ <br> GLANZ</div>
-                        <span class="example-spacer"></span>
-                        <h2 class="white-big">Depression im Spitzensport - <span class="white-small">Ein
-                                        Tabuthema</span></h2>
-                        <div class="burger" (click)="open()"
-                                [ngStyle]="{'background-image': 'url('+menuIconPaths[isMenuOpen?1:0]+')'}">
-                        </div>
-                </mat-toolbar>
-        </ng-container>
-
-        <ng-container *ngIf="currentRoute=='/start' || currentRoute=='/'">
-                <div class="burger burger-home" (click)="open()"
-                        [ngStyle]="{'background-image': 'url('+menuIconPaths[isMenuOpen?1:0]+')'}">
-                </div>
-
-        </ng-container>
-</ng-container>
-
-<ng-container *ngIf="windowsSizeService.isMobile">
-        <mat-toolbar class="app-toolbar-mobile">
-                <div class="small-logo-mobile" [routerLink]="['']">MATT <br> TROTZ <br> GLANZ</div>
-                <span class="example-spacer"></span>
-                <div class="burger-mobile" (click)="open()"
-                        [ngStyle]="{'background-image': 'url('+menuIconPaths[isMenuOpen?1:0]+')'}">
-                </div>
-        </mat-toolbar>
-</ng-container>
-
+@if (!windowsSizeService.isMobile()) {
+  @if (!isHome()) {
+    <mat-toolbar class="app-toolbar-desktop">
+      <div class="small-logo-desktop" [routerLink]="['']">MATT <br> TROTZ <br> GLANZ</div>
+      <span class="example-spacer"></span>
+      <h2 class="white-big">Depression im Spitzensport - <span class="white-small">Ein Tabuthema</span></h2>
+      <div class="burger" (click)="open()" [style.background-image]="menuIcon()"></div>
+    </mat-toolbar>
+  } @else {
+    <div class="burger burger-home" (click)="open()" [style.background-image]="menuIcon()"></div>
+  }
+} @else {
+  <mat-toolbar class="app-toolbar-mobile">
+    <div class="small-logo-mobile" [routerLink]="['']">MATT <br> TROTZ <br> GLANZ</div>
+    <span class="example-spacer"></span>
+    <div class="burger-mobile" (click)="open()" [style.background-image]="menuIcon()"></div>
+  </mat-toolbar>
+}
 
 <router-outlet></router-outlet>

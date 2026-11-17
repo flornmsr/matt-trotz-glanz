@@ -1,18 +1,21 @@
-import { Component, OnInit, HostListener } from '@angular/core';
-import { WindowsSizeService } from 'src/app/menu/windows-size.service';
+import { Component } from '@angular/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-media-folder-pictures',
-  templateUrl: './media-folder-pictures.component.html'
+  imports: [MatListModule, MatDividerModule],
+  templateUrl: './media-folder-pictures.component.html',
+  styleUrl: './media-folder-pictures.component.scss',
 })
 export class MediaFolderPicturesComponent {
 
 
 
-  myImages = [
+  protected readonly myImages = [
     {
       previewPath: '/assets/pictures/cover_book.png',
-      path: '/assets/pictures/cover_book.jpeg',
+      path: '/assets/pictures/cover_book.jpg',
       name: 'Buch Cover',
       photographer: 'Kaleidosbuch'
     },
@@ -188,12 +191,4 @@ export class MediaFolderPicturesComponent {
 
     
   ]
-
-  constructor(public windwosSizeService: WindowsSizeService) {
-
-  }
-
-
-
-
 }

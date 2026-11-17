@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MediaFolderFilesComponent } from './media-folder-files/media-folder-files.component';
+import { MediaFolderPicturesComponent } from './media-folder-pictures/media-folder-pictures.component';
 
 
 export enum MEDIA_TYPE {
@@ -14,11 +18,12 @@ export interface Section {
 
 @Component({
   selector: 'app-media-folder',
+  imports: [MatCardModule, MatTabsModule, MediaFolderFilesComponent, MediaFolderPicturesComponent],
   templateUrl: './media-folder.component.html'
 })
 export class MediaFolderComponent {
 
-  public MEDIATYPE = MEDIA_TYPE;
+  protected readonly MEDIATYPE = MEDIA_TYPE;
 
 
   files: Section[] = [
@@ -102,7 +107,5 @@ export class MediaFolderComponent {
     }
 
   ];
-
-  constructor() { }
 
 }

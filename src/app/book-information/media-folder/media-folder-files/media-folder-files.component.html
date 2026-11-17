@@ -1,23 +1,21 @@
-<mat-list>
-  <ng-container *ngIf="type === MEDIATYPE.FILE">
-    <a *ngFor="let file of list" [download]="file.name" [href]="urlToFile + file.path">
-      <mat-list-item>
-        <mat-icon mat-list-icon>note</mat-icon>
-        <div mat-line>{{file.name}}</div>
-        <div mat-line> {{file.updated | date}} </div>
-      </mat-list-item>
-    </a>
-  </ng-container>
+<mat-nav-list>
+  @if (type() === MEDIATYPE.FILE) {
+    @for (file of list(); track file.path) {
+      <a mat-list-item [download]="file.name" [href]="urlToFile + file.path">
+        <mat-icon matListItemIcon>note</mat-icon>
+        <span matListItemTitle>{{ file.name }}</span>
+        <span matListItemLine>{{ file.updated | date }}</span>
+      </a>
+    }
+  }
 
-  <ng-container *ngIf="type === MEDIATYPE.LINK">
-    <a *ngFor="let link of list" [href]="link.path" target="_blank">
-      <mat-list-item>
-        <mat-icon mat-list-icon>link</mat-icon>
-        <div mat-line>{{link.name}}</div>
-        <div mat-line> {{link.updated | date}} </div>
-      </mat-list-item>
-    </a>
-  </ng-container>
-  
-</mat-list>
-
+  @if (type() === MEDIATYPE.LINK) {
+    @for (link of list(); track link.path) {
+      <a mat-list-item [href]="link.path" target="_blank">
+        <mat-icon matListItemIcon>link</mat-icon>
+        <span matListItemTitle>{{ link.name }}</span>
+        <span matListItemLine>{{ link.updated | date }}</span>
+      </a>
+    }
+  }
+</mat-nav-list>

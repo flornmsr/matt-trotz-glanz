@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MediaFolderComponent } from '../media-folder/media-folder.component';
 
 // Das Feedback-Formular hat Einträge in der Firebase-Datenbank gespeichert.
 // Firebase wurde entfernt, deshalb ist das Formular im Template auskommentiert.
@@ -27,6 +29,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
-  templateUrl: './contact.component.html'
+  imports: [MatCardModule, MediaFolderComponent],
+  templateUrl: './contact.component.html',
 })
-export class ContactComponent { }
+export class ContactComponent {}

@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
+  imports: [RouterLink],
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrl: './menu.component.scss',
 })
 export class MenuComponent {
+  private readonly dialogRef = inject(MatDialogRef<MenuComponent>);
 
-  constructor(public dialogRef: MatDialogRef<MenuComponent>) { }
-
-  dismissMenu() {
+  protected dismissMenu(): void {
     this.dialogRef.close();
   }
 }

@@ -1,27 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 import { MEDIA_TYPE, Section } from '../media-folder.component';
-
-
 
 @Component({
   selector: 'app-media-folder-files',
+  imports: [DatePipe, MatIconModule, MatListModule],
   templateUrl: './media-folder-files.component.html',
-  styleUrls: ['./media-folder-files.component.scss']
+  styleUrl: './media-folder-files.component.scss',
 })
 export class MediaFolderFilesComponent {
+  readonly type = input.required<MEDIA_TYPE>();
+  readonly list = input.required<Section[]>();
 
-  @Input()
-  public type: MEDIA_TYPE;
-
-  @Input()
-  public list: Section[];
-
-  public MEDIATYPE = MEDIA_TYPE;
-
-  urlToFile="./assets/files/media-folder/";
-
- 
-
-  constructor() { }
-
+  protected readonly MEDIATYPE = MEDIA_TYPE;
+  protected readonly urlToFile = './assets/files/media-folder/';
 }

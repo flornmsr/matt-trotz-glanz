@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
   selector: 'app-order',
-  templateUrl: './order.component.html'
+  imports: [MatCardModule],
+  templateUrl: './order.component.html',
 })
-export class OrderComponent { }
+export class OrderComponent {}

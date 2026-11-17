@@ -1,33 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { WindowsSizeService } from 'src/app/menu/windows-size.service';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-
+import { Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { WindowsSizeService } from '../../menu/windows-size.service';
 
 @Component({
   selector: 'app-home',
+  imports: [RouterLink, MatButtonModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
-
-  constructor(public windowsSizeService: WindowsSizeService, private snackbar: MatSnackBar, private router: Router) {
-
-  }
-
-  ngOnInit(): void {
-  }
-
-  openSnackBar() {
-    this.snackbar.open('Buchvernissage: 2. Oktober 2020 18.30 Uhr, Stiftung TRANSfair Thun', 'Mehr', {
-      duration: 10000,
-    }).onAction()
-    .subscribe(() => this.router.navigate(['/buch']));
-  }
-
-  
-
-
-
-
+export class HomeComponent {
+  protected readonly windowsSizeService = inject(WindowsSizeService);
 }

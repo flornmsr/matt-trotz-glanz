@@ -1,35 +1,48 @@
-// /* You can add global styles to this file, and also import other style files */
-
 body {
-    padding: 0;
-    margin: 0;
-    background-color: #303030;
+  padding: 0;
+  margin: 0;
+  background-color: #303030;
 }
 html,
 body {
-    height: 100%;
-    overflow: auto;
+  height: 100%;
+  overflow: auto;
 }
 body {
-    margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: rgba(255, 255, 255, 0.87);
 }
 
-.actions .mat-card-header-text {
-    margin: auto 30px;
+// Material-Karten wie in Angular Material 10: 16px Innenabstand, Inhalt ohne Extra-Einzug
+.mat-mdc-card {
+  padding: 16px;
+}
+.mat-mdc-card .mat-mdc-card-content {
+  padding: 0;
+}
+.mat-mdc-card .mat-mdc-card-title {
+  margin-bottom: 8px;
 }
 
-.custom-dialog > mat-dialog-container {
-    background: transparent;
-    box-shadow: none;
+.actions .mat-mdc-card-header-text {
+  margin: auto 30px;
+}
+
+// Menü-Dialog: transparenter Hintergrund, nur die Links sind sichtbar
+.custom-dialog {
+  --mat-dialog-container-color: transparent;
+  --mat-dialog-container-elevation-shadow: none;
 }
 
 .backdrop-dialog {
-    background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .site-content {
-    margin-top: 3rem;
+  margin-top: 3rem;
 }
 
-button:focus {outline:0;}
+button:focus {
+  outline: 0;
+}

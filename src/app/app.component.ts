@@ -1,69 +1,54 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { filter, map } from 'rxjs';
 import { MenuComponent } from './menu/menu/menu.component';
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { WindowsSizeService } from './menu/windows-size.service';
-
 
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet, RouterLink, MatToolbarModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
-  title = 'matt-trotz-glanz-web-app';
-  public currentRoute;
+export class AppComponent {
+  private readonly menuDialog = inject(MatDialog);
+  private readonly router = inject(Router);
+  protected readonly windowsSizeService = inject(WindowsSizeService);
 
-  constructor(public menuDialog: MatDialog,
-    private router: Router,
-    public breakpointObserver: BreakpointObserver,
-    public windowsSizeService: WindowsSizeService) { }
+  protected readonly currentRoute = toSignal(
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      map((event) => event.urlAfterRedirects),
+    ),
+    { initialValue: '' },
+  );
 
-  ngOnInit(): void {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.currentRoute = event.url;
-        console.log(this.currentRoute);
-      }
-    })
-    this.breakpointObserver
-      .observe(['(min-width: 1000px)'])
-      .subscribe((state: BreakpointState) => {
-        if (state.matches) {
-          console.log('Viewport is 1000px or over!');
-        } else {
-          console.log('Viewport is getting smaller!');
-        }
-        this.windowsSizeService.windowsSizeChanged(!state.matches);
-      });
+  protected readonly isMenuOpen = signal(false);
+
+  protected readonly menuIconPaths = ['assets/files/burger.png', 'assets/files/cross.png'];
+
+  protected isHome(): boolean {
+    const route = this.currentRoute();
+    return route === '/start' || route === '/';
   }
 
-  isMenuOpen: boolean = false;
+  protected menuIcon(): string {
+    return `url(${this.menuIconPaths[this.isMenuOpen() ? 1 : 0]})`;
+  }
 
-  menuIconPaths: string[] = [
-    "../../../assets/files/burger.png",
-    "../../../assets/files/cross.png"
-  ];
-
-  open() {
-    if (!this.isMenuOpen) {
-      this.isMenuOpen = !this.isMenuOpen
-
-      let config = {
-        panelClass: 'custom-dialog',
-        backdropClass: 'backdrop-dialog'
-      };
-
-      const dialogRef = this.menuDialog.open(MenuComponent, config);
-
-      dialogRef.afterClosed().subscribe(result => {
-        this.isMenuOpen = false;
-      });
-    }
-    else {
+  protected open(): void {
+    if (this.isMenuOpen()) {
       this.menuDialog.closeAll();
+      return;
     }
+    this.isMenuOpen.set(true);
+    const dialogRef = this.menuDialog.open(MenuComponent, {
+      panelClass: 'custom-dialog',
+      backdropClass: 'backdrop-dialog',
+    });
+    dialogRef.afterClosed().subscribe(() => this.isMenuOpen.set(false));
   }
-
 }

@@ -22,13 +22,13 @@
 }
 
 .flo-portrait{
-    @extend.small-pictures;
-    background-image: url(../../../assets/pictures/studio-12536-Bearbeitet.jpg);    
+    @extend .small-pictures;
+    background-image: url(/assets/pictures/studio-12536-Bearbeitet.jpg);    
 }
 
 .buch-cover-normal{
     @extend .small-pictures;
-    background-image: url(../../../assets/pictures/cover_book.png);
+    background-image: url(/assets/pictures/cover_book.png);
 }
 
 .book-info-box{

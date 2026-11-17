@@ -19,10 +19,11 @@ import {MatListModule} from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, ContactComponent, OverviewBookComponent, MediaFolderComponent, MediaFolderPicturesComponent, MediaFolderFilesComponent],
+  declarations: [HomeComponent, ContactComponent, OverviewBookComponent, MediaFolderComponent, MediaFolderPicturesComponent, MediaFolderFilesComponent, OrderComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,

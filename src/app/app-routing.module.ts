@@ -2,13 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './book-information/home/home.component';
 import { ContactComponent } from './book-information/contact/contact.component';
-import { LoginComponent } from './auth/login/login.component';
-import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { OverviewBookComponent } from './book-information/overview-book/overview-book.component';
-import { PreorderFormComponent } from './preorder/preorder-form/preorder-form.component';
-
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['anmelden']);
-const redirectLoggedInToStart = () => redirectLoggedInTo(['start']);
+import { OrderComponent } from './book-information/order/order.component';
 
 const routes: Routes = [
   {
@@ -21,9 +16,9 @@ const routes: Routes = [
     path: 'buch', component: OverviewBookComponent,
   },
   {
-    path: 'bestellen', component: PreorderFormComponent,
+    path: 'bestellen', component: OrderComponent,
   },
-  
+
   { path: '', redirectTo: '/start', pathMatch: 'full' }
 ];
 

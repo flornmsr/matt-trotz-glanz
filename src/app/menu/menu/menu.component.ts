@@ -1,6 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { AuthenticationService } from 'src/app/auth/authentication.service';
+import { Component } from '@angular/core';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-menu',
@@ -9,18 +8,9 @@ import { AuthenticationService } from 'src/app/auth/authentication.service';
 })
 export class MenuComponent {
 
-  constructor(
-    public dialogRef: MatDialogRef<MenuComponent>,
-    public authService: AuthenticationService
-  ) {
-  }
+  constructor(public dialogRef: MatDialogRef<MenuComponent>) { }
 
   dismissMenu() {
     this.dialogRef.close();
-  }
-
-  logOut() {
-    this.dismissMenu();
-    this.authService.signOut();
   }
 }

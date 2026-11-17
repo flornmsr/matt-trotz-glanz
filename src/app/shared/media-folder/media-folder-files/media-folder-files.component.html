@@ -1,0 +1,21 @@
+<mat-nav-list>
+  @if (type() === MEDIATYPE.FILE) {
+    @for (file of list(); track file.path) {
+      <a mat-list-item [download]="file.name" [href]="urlToFile + file.path">
+        <mat-icon matListItemIcon>note</mat-icon>
+        <span matListItemTitle>{{ file.name }}</span>
+        <span matListItemLine>{{ file.updated | date }}</span>
+      </a>
+    }
+  }
+
+  @if (type() === MEDIATYPE.LINK) {
+    @for (link of list(); track link.path) {
+      <a mat-list-item [href]="link.path" target="_blank">
+        <mat-icon matListItemIcon>link</mat-icon>
+        <span matListItemTitle>{{ link.name }}</span>
+        <span matListItemLine>{{ link.updated | date }}</span>
+      </a>
+    }
+  }
+</mat-nav-list>

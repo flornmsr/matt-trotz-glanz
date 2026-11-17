@@ -1,0 +1,122 @@
+.zitat{
+  color: #ffffff;
+  font-size: xx-large;
+  max-width: 1000px;
+  // font-family: 'Times New Roman', Times, serif;
+  line-height: 1;
+  text-shadow:0px 0px 5px #0000006b;
+  text-align: start;
+
+  position: absolute;
+  right: 100px;
+  bottom: 100px;
+}
+
+.ztat-verfasser{
+  font-size: x-large;
+}
+
+.book-pic{
+  background-image: url(/assets/pictures/cover_book.png);
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.background {
+  background-image: url(/assets/pictures/WIS2636-3.jpg), linear-gradient(rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.308));
+  background-blend-mode: saturation;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+  background-position: 30% 50%;
+  border: #ffffff 30px solid;
+}
+
+.background-mobile{
+  background-image: url(/assets/pictures/cover_book.png), linear-gradient(rgba(0, 0, 0, 0.008), rgba(0, 0, 0, 0.608), rgba(0, 0, 0, 0.708));
+  background-blend-mode: saturation;
+  height: calc(100vh - 64px);;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  position: relative;
+  border-top: none;
+}
+
+.small-heading-box{
+  position: absolute;
+  top: 50px;
+  right: 100px;
+  transform: translate(0, -15px);
+}
+
+.small-heading{
+  line-height: 1;
+  text-align: center;
+  font-size: 36px;
+}
+
+.white-big{
+  @extend .small-heading;
+  color: white;
+  font-size: 36px;
+  text-shadow: 0px 0px 5px #0000006b;
+}
+.black-small{
+  @extend .small-heading;
+  color: black;
+  font-weight: 200;
+}
+.white-small{
+  @extend .black-small;
+  color: white;
+}
+
+.title-circle{
+  position: absolute;
+  top:15%;
+  left: 0%;
+  transform: translate(-10%, -20%);
+  background-color: rgb(253, 253, 253);
+  color: #000;
+  border-radius: 50%;
+  margin:0;
+  mix-blend-mode: screen;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  font-size: 70px;
+  line-height: 0.9;
+  text-align: center;
+}
+
+.title-mobile{
+  color: white;
+  margin-bottom: 0px;
+  text-shadow: 0px 0px 5px #000000ec;
+}
+.subtitle-mobile{
+  letter-spacing: -1px;
+  color: white;
+  font-weight: 300;
+  text-shadow: 0px 0px 5px #000000ec;
+}
+
+.text-front-mobile{
+  text-align: center;
+}
+
+.zitat-mobile{
+  color: white;
+  margin-top: 10em;
+  position: absolute;
+  bottom: 0;
+  transform: translate(-10px, -50px);
+}
+

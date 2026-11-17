@@ -1,0 +1,16 @@
+<mat-list>
+  @for (image of myImages; track image.path; let last = $last) {
+    <mat-list-item lines="3">
+      <img matListItemAvatar [src]="image.previewPath" [alt]="image.name">
+      <span matListItemTitle>{{ image.name }}</span>
+      <span matListItemLine>{{ image.photographer }}</span>
+      <span matListItemLine class="picture-links">
+        <a [href]="image.path" target="_blank">Ansehen</a>
+        <a [download]="image.photographer + '_' + image.name" [href]="image.path">Herunterladen</a>
+      </span>
+    </mat-list-item>
+    @if (!last) {
+      <mat-divider></mat-divider>
+    }
+  }
+</mat-list>

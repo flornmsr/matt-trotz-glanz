@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-title>
+        Pressemappe
+    </mat-card-title>
+    <mat-card-content>
+        <mat-tab-group>
+            <mat-tab label="Dokumente"><app-media-folder-files [type]="MEDIATYPE.FILE" [list]="files"></app-media-folder-files></mat-tab>
+            <mat-tab label="Artikel"><app-media-folder-files [type]="MEDIATYPE.LINK" [list]="links"></app-media-folder-files></mat-tab>
+            <mat-tab label="Bilder">
+
+                <app-media-folder-pictures></app-media-folder-pictures>
+            </mat-tab>
+          </mat-tab-group>
+    </mat-card-content>
+</mat-card>
+

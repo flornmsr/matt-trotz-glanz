@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+// /* You can add global styles to this file, and also import other style files */
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #303030;
+}
+html,
+body {
+    height: 100%;
+    overflow: auto;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.actions .mat-card-header-text {
+    margin: auto 30px;
+}
+
+.custom-dialog > mat-dialog-container {
+    background: transparent;
+    box-shadow: none;
+}
+
+.backdrop-dialog {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.site-content {
+    margin-top: 3rem;
+}
+
+button:focus {outline:0;}

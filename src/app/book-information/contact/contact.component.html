@@ -1,0 +1,48 @@
+<div class="container site-content">
+    <mat-card>
+        <mat-card-title>
+            Kontakt
+        </mat-card-title>
+        <mat-card-content>
+
+            Kaleidosbuch<br>
+            Silvia Schneider-Schiess <a href="tel:+41786528964">(078 652 89 64)</a><br>
+            Maria Schmid <a href="tel:+41764115113">(076 411 51 13)</a><br>
+            <a href="mailto:info@kaleidosbuch.ch">info@kaleidosbuch.ch</a><br>
+            * sämtliche Anfragen zum Buch und allfällige Medienanfragen sind an Kaleidosbuch zu richten.
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Deine Meinung interessiert uns! Gib uns ein Feedback
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <form [formGroup]="feedbackForm" (submit)="submitFeedback()" class="row" *ngIf="!feedbackDone">
+            <mat-form-field class="form-control col-sm-5" appearance="outline">
+                <mat-label>name</mat-label>
+                <input matInput placeholder="Jan Meyerhans" formControlName="name" required autoComplete="off">
+            </mat-form-field>
+            <mat-form-field class="form-control col-sm-5" appearance="outline">
+                <mat-label>email</mat-label>
+                <input matInput placeholder="jan@meyerhans.com" formControlName="email" required autoComplete="off">
+            </mat-form-field>
+            <mat-form-field class="form-control col-11" appearance="outline">
+                <mat-label>feedback</mat-label>
+                <textarea matInput formControlName="feedback" required autoComplete="off"></textarea>
+            </mat-form-field>
+            <button mat-flat-button color="primary">Absenden</button>
+        </form>
+
+        <ng-container *ngIf="feedbackDone">
+            <h2>Danke für dein Feedback!</h2>
+            <button mat-flat-button (click)="feedbackDone=false">Weiters Feedback schreiben</button>
+        </ng-container>
+
+
+    </mat-expansion-panel>
+    <br>
+    <app-media-folder></app-media-folder>
+</div>

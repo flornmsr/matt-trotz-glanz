@@ -1,0 +1,109 @@
+<!-- <mat-vertical-stepper class="container my-stepper" [linear]="true" #stepper>
+    Step 1: order
+    <mat-step [stepControl]="orderQuantityForm">
+        <form [formGroup]="orderQuantityForm" class="row">
+            <ng-template matStepLabel>Gib deine Bestellung an</ng-template>
+            <mat-form-field class="col-sm-4" appearance="outline">
+                <mat-label>Anzahl Exemplare</mat-label>
+                <input matInput type="number" min="1" formControlName="numberOfBookOrders" required
+                    (input)="orderQuantityForm.get('price').setValue(orderQuantityForm.get('numberOfBookOrders').value*25)">
+            </mat-form-field>
+            <mat-form-field class="col-sm-4" appearance="outline" disabled>
+                <mat-label>Preis</mat-label>
+                <input matInput type="number" min="25" formControlName="price">
+            </mat-form-field>
+            <div class="order-small-card col-12">
+                <p>Preis pro Exemplar: 25 Franken</p>
+            </div>
+            <div class="col-12">
+                <button mat-flat-button color="accent" matStepperNext>Weiter</button>
+            </div>
+        </form>
+    </mat-step>
+ Step 2: Address 
+    <mat-step [stepControl]="orderAddressForm">
+        <form class="form container" [formGroup]="orderAddressForm" *ngIf="orderAddressForm">
+            <ng-template matStepLabel>Gib deine Addresse an</ng-template>
+            <div class="row">
+                <mat-form-field class="form-control col-12" appearance="outline">
+                    <mat-label>Vorname</mat-label>
+                    <input matInput placeholder="Jan" formControlName="prename" required autoComplete="off">
+                    <mat-error *ngIf="orderAddressForm.get('prename').invalid">
+                        {{getErrorMessage(orderAddressForm.get('prename'))}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-control col-12" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Meyerhans" formControlName="name" required autoComplete="off">
+                    <mat-error *ngIf="orderAddressForm.get('name').invalid">
+                        {{getErrorMessage(orderAddressForm.get('name'))}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-control col-12" appearance="outline">
+                    <mat-label>Adresse</mat-label>
+                    <input matInput placeholder="Gurtenstrasse 17" formControlName="address" required
+                        autoComplete="off">
+                    <mat-error *ngIf="orderAddressForm.get('address').invalid">
+                        {{getErrorMessage(orderAddressForm.get('address'))}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-control col-sm-3" appearance="outline">
+                    <mat-label>PLZ</mat-label>
+                    <input matInput placeholder="3007" formControlName="zip" required autoComplete="off" type="number">
+                    <mat-error *ngIf="orderAddressForm.get('zip').invalid">
+                        {{getErrorMessage(orderAddressForm.get('zip'))}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-control col-sm-9" appearance="outline">
+                    <mat-label>Ort</mat-label>
+                    <input matInput placeholder="Bern" formControlName="city" required autoComplete="off">
+                    <mat-error *ngIf="orderAddressForm.get('city').invalid">
+                        {{getErrorMessage(orderAddressForm.get('city'))}}
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="form-control col-12" appearance="outline">
+                    <mat-label>email</mat-label>
+                    <input matInput placeholder="jan@meyerhans.com" formControlName="email" required autoComplete="off">
+                    <mat-error *ngIf="orderAddressForm.get('email').invalid">
+                        {{getErrorMessage(orderAddressForm.get('email'))}}
+                    </mat-error>
+                </mat-form-field>
+                <button mat-flat-button color="accent" [disabled]="orderAddressForm.invalid"
+                    matStepperNext>Weiter</button>
+                <button mat-flat-button matStepperPrevious>Zurück</button>
+            </div>
+        </form>
+    </mat-step>
+     Step 3 verification & complete order
+    <mat-step>
+        <ng-template matStepLabel>Bestellung abschliessen</ng-template>
+        <p>Du bist Fertig!</p>
+        <p>Überprüfe deine Angaben:</p>
+        <code>
+            Anschrift:<br>
+            {{orderAddressForm.get('prename').value}} {{orderAddressForm.get('name').value}}<br>
+            {{orderAddressForm.get('address').value}}<br>
+            {{orderAddressForm.get('zip').value}} {{orderAddressForm.get('city').value}}<br>
+            {{orderAddressForm.get('email').value}}<br><br>
+            Bestellung: 
+            {{orderQuantityForm.get('numberOfBookOrders').value}}
+            {{orderQuantityForm.get('numberOfBookOrders').value>1?'Exemplare':'Exemplar'}} à
+            {{orderQuantityForm.get('price').value}} Franken<br><br>
+        </code>
+        <re-captcha (resolved)="resolved($event)"></re-captcha>
+        <br>
+        <div>
+            <button mat-flat-button color="primary" type="submit"
+                [disabled]="orderAddressForm.invalid || orderQuantityForm.invalid || !reCaptchaState"
+                (click)="orderBook(orderAddressForm.value, orderQuantityForm.value)">Bestellen</button>
+            <button mat-flat-button matStepperPrevious>Zurück</button>
+            <button mat-flat-button (click)="stepper.reset()">Zurücksetzen</button>
+        </div>
+    </mat-step>
+</mat-vertical-stepper>
+ -->

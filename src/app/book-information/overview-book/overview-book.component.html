@@ -1,0 +1,130 @@
+<div class="container site-content">
+
+    <mat-accordion class="example-headers-align" multi>
+
+        <mat-expansion-panel class="mat-expansion-panel">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h1 style="margin: 0;" *ngIf="!windowsSizeService.isMobile">Über den Autor</h1>
+                    <span *ngIf="windowsSizeService.isMobile">Über den Autor</span>
+                </mat-panel-title>
+                <mat-panel-description>
+                    Florian Schneider
+                    <mat-icon *ngIf="!windowsSizeService.isMobile">account_circle</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="row">
+                <!-- Mobile -->
+                <div class="col-lg-3 small-pictures-mobile" *ngIf="windowsSizeService.isMobile">
+                    <div class="flo-portrait"></div>
+                </div>
+                <div class="col-lg-8">
+                    Florian Schneider, geboren am 6. April 1993 in Bern, lebte bis 2018 in der Gemeinde Stettlen rund
+                    sieben Kilometer östlich von Bern. Seit 2018 wohnt er in Thun. Der Bauingenieur (Bachelor of Science
+                    an der Fachhochschule in Burgdorf) schloss im Jahre 2017 sein Studium ab. Seit er denken kann, ist
+                    er in der Orientierungslaufszene unterwegs. Ursprünglich durch seine Eltern zum Sport gekommen,
+                    verliebte Florian sich in die naturnahe Sportart. 2009 gewann er zum ersten Mal internationales
+                    Edelmetall: die Silbermedaille an den Jugend-Europameisterschaften in Serbien. Vier Jahre später
+                    komplettierte er mit dem Juniorenweltmeistertitel in Tschechien seine Sammlung von insgesamt neun
+                    Medaillen an Junioren- sowie Jugend-Welt- und Europameisterschaften. Seit der Saison 2014 ist er als
+                    aktiver Leistungssportler im Nationalkader von SwissOrienteering. Nebst drei Medaillen an den
+                    Studentenweltmeisterschaften, einer Militär-Weltmeisterschaftsmedaille und vielen
+                    Schweizermeisterschaftsmedaillen gelang ihm im Jahre 2017 zum ersten Mal den Vorstoss in die Top 10
+                    im Weltcup. Aufgrund anhaltender physischer Verletzungen und damit verbundener psychischer
+                    Erkrankungen gestalteten sich die Jahre 2018 bis 2020 schwierig, grosse sportliche Erfolge blieben
+                    mehr und mehr aus.<br><br>
+                    Nebst der aktiven Karriere als Spitzensportler ist Florian ein Naturmensch, der die Einsamkeit in
+                    den Bergen genauso mag wie grössere Versammlungen und spannende Abende in der Gruppe. Eines seiner
+                    grossen Hobbies zeigt sich im Buch «Matt trotz Glanz» ganz deutlich: Er liebt es, Dinge zu
+                    skizzieren und seine Emotionen so zu Papier zu bringen.
+                    Nun versucht er mit diesem niedergeschriebenen Text seine Geschichte zu verarbeiten, eine
+                    öffentliche Diskussion anzuregen und andere Menschen zu motivieren, Ihre Probleme nicht im dunklen
+                    Zimmer zu verbergen.
+
+
+                </div>
+                <div class="col-md-3" *ngIf="!windowsSizeService.isMobile">
+                    <div class="flo-portrait"></div>
+                </div>
+            </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel expanded>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h1 style="margin: 0;" *ngIf="!windowsSizeService.isMobile">Über das Buch</h1>
+                    <span *ngIf="windowsSizeService.isMobile">Über das Buch</span>
+                </mat-panel-title>
+                <mat-panel-description>
+                    Matt trotz Glanz
+                    <mat-icon *ngIf="!windowsSizeService.isMobile">menu_book</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <div class="row">
+                <!-- Mobile -->
+                <div class="col-lg-3 small-pictures-mobile" *ngIf="windowsSizeService.isMobile">
+                    <div class="buch-cover-normal"></div>
+                </div>
+                <div class="col-lg-8">
+                    <p>
+                        Ein junger, talentierter Leistungssportler geht seinen Weg. Er trainiert hochgradig motiviert,
+                        er
+                        läuft von Medaille zu Medaille in seiner Disziplin: dem Orientierungslauf. Daneben verfolgt er
+                        sein
+                        Weiterkommen im Beruf. Er engagiert sich für den Sport-Nachwuchs, organisiert, bringt sich
+                        vehement
+                        ein. Was er auch anpackt, scheint zu gelingen, er gibt stets 100%. Doch dann bremst ihn eine
+                        wiederkehrende Verletzung aus. Der Schmerz behindert zuerst seine sportlichen Möglichkeiten,
+                        dann
+                        überschattet er den gesamten Alltag. Das physische Problem legt sich wie Mehltau auf seine
+                        Seele.
+                        Ein Fragen-Karussell dreht sich immer schneller. Zweifel, Ratlosigkeit und Schwermut bestimmen
+                        das
+                        Innenleben des Sportlers, der nach außen hin unter größter Anstrengung weiter versucht, der Alte
+                        zu
+                        bleiben, stets gut gelaunt und stark, bis die Fassade nicht länger zu halten ist. Ein Abend im
+                        April
+                        2019 leitet einen Wendepunkt ein, und er beginnt, sich aus dem Nebel zurückzukämpfen, in sein
+                        altes
+                        und doch neues Leben.
+                        <br><br>
+                        Florian Schneider lässt die Leserinnen und Leser hautnah an einem Kampf teilhaben, für den es
+                        keine
+                        Medaille, keinen Ruhm zu gewinnen gibt, und der dennoch sein wohl wichtigster ist. Mit großer
+                        Offenheit, medizinischen Details, mit den Berichten zahlreicher Leistungssportlerinnen und
+                        -sportler
+                        liefert das Buch persönliche, authentische Einblicke und zeigt auf, dass Krisen und Depressionen
+                        auch im Leistungssport kein Tabu sein dürfen.
+                    </p>
+
+                </div>
+                <!-- Desktop -->
+                <div class="col-lg-3" *ngIf="!windowsSizeService.isMobile">
+                    <div class="buch-cover-normal"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="video col-lg-8">
+                    <video controls (click)="toggleVideo()" #videoPlayer>
+                        <source src="./assets/files/Export_Final.mp4" type="video/mp4" />
+                        Browser not supported
+                    </video>
+                </div>
+                <div class="col-lg-3">
+                    <div class="book-info-box">
+                        <div class="line"></div>
+                        <p class="book-infos">Florian Schneider</p>
+                        <p class="book-infos">«Matt Trotz Glanz»</p>
+                        <p class="book-infos">Kaleidosbuch</p>
+                        <p class="book-infos">Hardcover, 176 Seiten</p>
+                        <p class="book-infos">ISBN 978-3-033-08030-0</p>
+                        <p class="book-infos">Fr. 25.-</p>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <button mat-flat-button color="primary" [routerLink]="['/bestellen']">Buch bestellen</button>
+
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>

@@ -1,0 +1,15 @@
+<mat-list *ngFor="let image of myImages; let i=index; let lastItem = last;">
+    <mat-list-item >
+        <img mat-list-avatar [src]="image.previewPath">
+        <div mat-line>{{image.name}}</div>
+        <div mat-line>{{image.photographer}}</div>
+        <div *ngIf="!windwosSizeService.isMobile">
+            <a mat-line [href]="image.path" target="_blank">Ansehen</a><a mat-line [download]="image.photographer +'_'+image.name" [href]="image.path">Herunterladen</a>
+        </div>
+
+        <div mat-line *ngIf="windwosSizeService.isMobile">
+            <a mat-line [href]="image.path" target="_blank">Ansehen</a><a mat-line [download]="image.photographer +'_'+ image.name" [href]="image.path">Herunterladen</a>
+        </div>
+    </mat-list-item>
+    <mat-divider *ngIf="!lastItem"></mat-divider>
+</mat-list>

@@ -4,8 +4,8 @@ import { NavigationEnd, Router, RouterLink, RouterOutlet } from '@angular/router
 import { MatDialog } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { filter, map } from 'rxjs';
-import { MenuComponent } from './menu/menu/menu.component';
-import { WindowsSizeService } from './menu/windows-size.service';
+import { MenuComponent } from './shared/menu/menu.component';
+import { WindowsSizeService } from './shared/windows-size.service';
 
 @Component({
   selector: 'app-root',

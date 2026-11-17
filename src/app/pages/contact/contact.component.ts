@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { MediaFolderComponent } from '../media-folder/media-folder.component';
+import { MediaFolderComponent } from '../../shared/media-folder/media-folder.component';
 
 // Das Feedback-Formular hat Einträge in der Firebase-Datenbank gespeichert.
 // Firebase wurde entfernt, deshalb ist das Formular im Template auskommentiert.
